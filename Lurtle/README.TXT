@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: Lurtle
+PURPOSE OF PROJECT: Primer prototipo juego
+VERSION or DATE: 31/07/2023
+HOW TO START THIS PROJECT: Greenfoot
+AUTHORS: Javier Lopez & Diego lopez
+USER INSTRUCTIONS: -
