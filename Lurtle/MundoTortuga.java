@@ -23,7 +23,7 @@ public class MundoTortuga extends World
 
         for (int i = 0; i < 17; i++) {
             Lettuce lettuce = new Lettuce();
-            addObject(lettuce, random.nextInt(500)-500, random.nextInt(500)-500);
+            addObject(lettuce, random.nextInt(500)-500, random.nextInt(300)-300);
         }
 
         Snake snake = new Snake();
