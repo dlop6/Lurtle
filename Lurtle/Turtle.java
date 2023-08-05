@@ -28,6 +28,8 @@ public class Turtle extends Animal
         if (canSee(Lettuce.class) )
         {
             eat(Lettuce.class);
+            Counter counter = (Counter) getWorld().getObjects(Counter.class).get(0);
+            counter.add(1);
         }
     }
 }

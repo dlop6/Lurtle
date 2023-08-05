@@ -6,9 +6,12 @@ public class MundoTortuga extends World
     //Crear el mundo
     public MundoTortuga() 
     {
-        super(600, 480, 1);
-
+        super(800, 700, 1);
+        
+        
         preparar();
+        prepare();
+        
     }
 
     /**
@@ -19,11 +22,12 @@ public class MundoTortuga extends World
     {
         Random random = new Random();
         Turtle turtle = new Turtle();
-        addObject(turtle, 0, 0);
+        addObject(turtle, 200, 200);
 
-        for (int i = 0; i < 17; i++) {
+        for (int i = 0; i < 10; i++) {
             Lettuce lettuce = new Lettuce();
-            addObject(lettuce, random.nextInt(500)-500, random.nextInt(300)-300);
+            addObject(lettuce, random.nextInt(getWidth()), random.nextInt(getHeight()));
+
         }
 
         Snake snake = new Snake();
@@ -32,5 +36,17 @@ public class MundoTortuga extends World
         addObject(snake2, 72, 396);
         Snake snake3 = new Snake();
         addObject(snake3, 484, 296);
+    }
+    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Counter counter = new Counter();
+        addObject(counter,299,459);
+        counter.setLocation(405,673);
+        counter.setLocation(428,675);
     }
 }
