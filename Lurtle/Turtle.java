@@ -30,6 +30,9 @@ public class Turtle extends Animal
             eat(Lettuce.class);
             Counter counter = (Counter) getWorld().getObjects(Counter.class).get(0);
             counter.add(1);
+            MundoTortuga mundo = (MundoTortuga) getWorld();
+            mundo.decrementarLechugasRestantes();
+ 
         }
     }
 }
