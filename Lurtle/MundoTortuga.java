@@ -4,11 +4,16 @@ import java.util.Random;; // imports Random
 public class MundoTortuga extends World
 {
     private int lechugasRestantes;
+    private boolean mangoAparecido;
+    private int tiempoEsperaMango;
+    private GreenfootSound winSound;
+    private boolean juegoTerminado;
     //Crear el mundo
     public MundoTortuga() 
     {
         super(600, 500, 1);
-        
+        mangoAparecido = false;
+        tiempoEsperaMango = 0;
         
         preparar();
         prepare();
@@ -24,7 +29,7 @@ public class MundoTortuga extends World
         Random random = new Random();
         Turtle turtle = new Turtle();
         addObject(turtle, 200, 200);
-        lechugasRestantes = 1;
+        lechugasRestantes = 10;
 
         for (int i = 0; i < lechugasRestantes; i++) {
             Lettuce lettuce = new Lettuce();
@@ -32,7 +37,14 @@ public class MundoTortuga extends World
 
         }
         
-        for (int j = 0; j < 2; j++){
+        if (!mangoAparecido) {
+            mangouu mango = new mangouu();
+            addObject(mango, random.nextInt(getWidth()), random.nextInt(getHeight()));
+            mangoAparecido = true;
+        }
+        
+        
+        for (int j = 0; j < 3; j++){
             Snake snake = new Snake();
             addObject(snake, random.nextInt(getWidth()), random.nextInt(getHeight()));
             
@@ -47,12 +59,18 @@ public class MundoTortuga extends World
         }
     }
     
+    public boolean juegoTerminado() {
+        return juegoTerminado;
+    }
+    
     private void showEndMessage()
     {
-        // Muestra el mensaje final en el centro del mundo
+        winSound = new GreenfootSound("OMG.mp3");
+        winSound.play();
         mensajeFinal mensajeFinal = new mensajeFinal();
         addObject(mensajeFinal, getWidth() / 2, getHeight() / 2);
-        Greenfoot.stop(); // Detiene el juego
+        Greenfoot.stop();
+        
     }
     
     
@@ -68,5 +86,21 @@ public class MundoTortuga extends World
         counter.setLocation(428,675);
         counter.setLocation(456,145);
         counter.setLocation(305,17);
+    }
+    
+    public void act()
+    {
+        super.act();
+        if (tiempoEsperaMango > 0) {
+            tiempoEsperaMango--;
+        }
+    }
+    
+    public boolean puedeComerMango() {
+        return tiempoEsperaMango == 0;
+    }
+
+    public void reiniciarTiempoEsperaMango() {
+        tiempoEsperaMango = 600; // 10 segundos (10 * 60 frames por segundo)
     }
 }
