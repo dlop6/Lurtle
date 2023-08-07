@@ -73,7 +73,7 @@ public class Turtle extends Animal
             eatSound.play();
             eat(mangouu.class);
             Counter counter = (Counter) getWorld().getObjects(Counter.class).get(0);
-            counter.add(5);
+            counter.add(10);
             MundoTortuga mundo = (MundoTortuga) getWorld();
             mundo.reiniciarTiempoEsperaMango();
             
