@@ -56,7 +56,7 @@ public class Snake extends Animal
         gameOver= true;
 
         // Mostrar pantalla de "Game Over"
-        getWorld().showText("Game Over, presiona 'r' para reiniciar", getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+        getWorld().showText("Game Over, presiona 'R' para volver a jugar", getWorld().getWidth() / 2, getWorld().getHeight() / 2);
         loseSound = new GreenfootSound("hell na.mp3");
         loseSound.play();
         
